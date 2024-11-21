@@ -65,6 +65,12 @@ return [
     |
     */
 
+      'options' => [
+                'tls' => [
+                    'verify_peer' => false,
+                ],
+            ],
+
     'apps' => [
 
         'provider' => 'config',
