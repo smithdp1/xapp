@@ -33,7 +33,9 @@ return [
             'port' => env('REVERB_SERVER_PORT', 8080),
             'hostname' => env('REVERB_HOST'),
             'options' => [
-                'tls' => [],
+                'tls' => [
+                  'verify_peer' => false,
+                ],
             ],
             'max_request_size' => env('REVERB_MAX_REQUEST_SIZE', 10_000),
             'scaling' => [
@@ -64,12 +66,6 @@ return [
     | your server will support, including their connection credentials.
     |
     */
-
-      'options' => [
-                'tls' => [
-                    'verify_peer' => false,
-                ],
-            ],
 
     'apps' => [
 
