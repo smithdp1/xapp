@@ -28,7 +28,7 @@ class Timeline extends Component
         $allTweetIds = Tweet::where(function ($query) use ($user) {
             $query->where('user_id', $user->id)
                 ->orWhereIn('id', $user->likes()->pluck('tweet_id'))
-                ->orWhereIn('user_id', $user->following()->pluck('id'))
+                ->orWhereIn('user_id', $user->following()->pluck('followers.id'))
                 ->orWhereHas('retweets', function ($query) use ($user) {
                     $query->where('user_id', $user->id);
                 });
