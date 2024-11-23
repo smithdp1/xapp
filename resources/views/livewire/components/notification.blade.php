@@ -2,7 +2,7 @@
     <div class="mt-2 flex-shrink-0 text-blue-400">
         {!! $this->getIcon() !!}
     </div>
-    <div class="flex-1">
+    {{-- <div class="flex-1">
         <a href="{{ route('profile.show', $this->getUser()) }}" wire:navigate class="flex items-center space-x-3">
             <img src="{{ $this->getUser()->profile_photo_url }}" alt="User Image" class="w-10 h-10 rounded-full">
         </a>
@@ -36,5 +36,5 @@
                 <p><a href="{{ route('profile.show', $this->getUser()) }}" wire:navigate class=" hover:underline font-bold">{{ $this->getUser()->name }}</a> followed you.</p>
             </div>
         @endif
-    </div>
+    </div> --}}
 </div>
