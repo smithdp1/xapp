@@ -25,7 +25,7 @@ class User extends Authenticatable
     // Define the relationship for the users followed by the current user
     public function following()
     {
-        return $this->belongsToMany(User::class, 'followers', 'user_id', 'followed_id');
+        return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id');
     }
 
     // Define the relationship for the retweets made by the user
