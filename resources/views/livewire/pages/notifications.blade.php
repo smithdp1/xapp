@@ -9,9 +9,9 @@
         </div>
 
         <div wire:poll>
-            {{-- @foreach($this->getNotifications() as $notification)
-                <livewire:components.notification :notification="$notification" :key="$notification->id" />
-            @endforeach --}}
+            @foreach($this->getNotifications() as $notification)
+                {{-- <livewire:components.notification :notification="$notification" :key="$notification->id" /> --}}
+            @endforeach
         </div>
     </div>
 </div>
