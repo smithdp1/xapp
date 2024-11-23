@@ -22,18 +22,7 @@ class Timeline extends Component
 
     private function loadInitialChunks(): void
     {
-        $user = auth()->user();
-
-        // Get the IDs of the tweets based on the criteria
-        $allTweetIds = Tweet::where(function ($query) use ($user) {
-            $query->where('user_id', $user->id)
-                ->orWhereIn('id', $user->likes()->pluck('tweet_id'))
-                ->orWhereIn('user_id', $user->following()->pluck('followers.id'))
-                ->orWhereHas('retweets', function ($query) use ($user) {
-                    $query->where('user_id', $user->id);
-                });
-        })->latest()->pluck('id');
-
+        $allTweetIds = Tweet::whereNull('parent_id')->latest()->pluck('id');
         $this->chunks = $allTweetIds->chunk($this->chunkSize)->toArray();
 
         if (!empty($this->chunks)) {
@@ -56,6 +45,7 @@ class Timeline extends Component
 
         $this->page++;
         $nextChunkIds = $this->chunks[$this->page - 1];
+
         $moreTweets = Tweet::whereIn('id', $nextChunkIds)->latest()->get();
         $this->tweets = $this->tweets->merge($moreTweets);
     }
@@ -73,6 +63,7 @@ class Timeline extends Component
     public function listenForDeletedTweets($tweet): void
     {
         $tweet = Tweet::find($tweet['id']);
+
         if ($tweet) {
             $this->tweets = $this->tweets->reject(function ($t) use ($tweet) {
                 return $t->id === $tweet->id;
@@ -84,9 +75,38 @@ class Timeline extends Component
     public function addTweet($tweetId): void
     {
         $tweet = Tweet::find($tweetId);
+
         if ($tweet) {
+            // Add the tweet to the top of the collection
             $this->tweets->prepend($tweet);
+
+            // Update the chunks array to reflect the addition
+            array_unshift($this->chunks, [$tweet->id]);
+            $this->recalculatePagination();
         }
+    }
+
+    #[On('deleteTweet')]
+    public function deleteTweet($tweetId): void
+    {
+        $tweet = Tweet::find($tweetId);
+
+        if ($tweet) {
+            $this->tweets = $this->tweets->reject(function ($t) use ($tweet) {
+                return $t->id === $tweet->id;
+            });
+        }
+    }
+
+    private function recalculatePagination(): void
+    {
+        // Adjust the chunks array in case a new tweet has shifted chunk boundaries
+        $allTweetIds = collect($this->tweets->pluck('id'))->merge(
+            Tweet::whereNull('parent_id')->latest()->pluck('id')->diff($this->tweets->pluck('id'))
+        );
+
+        $this->chunks = $allTweetIds->chunk($this->chunkSize)->toArray();
+        $this->page = min($this->page, count($this->chunks));
     }
 
     public function render(): View

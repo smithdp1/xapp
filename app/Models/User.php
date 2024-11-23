@@ -2,35 +2,97 @@
 
 namespace App\Models;
 
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Traits\HasFollowers;
+use App\TweetType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Fortify\TwoFactorAuthenticatable;
+use Laravel\Jetstream\HasProfilePhoto;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasApiTokens;
+    use HasFactory;
+    use HasProfilePhoto;
+    use Notifiable;
+    use HasFollowers;
+    use TwoFactorAuthenticatable;
 
-    // Define the relationship for the tweets created by the user
-    public function tweets()
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'username',
+        'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+        'two_factor_recovery_codes',
+        'two_factor_secret',
+    ];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array<int, string>
+     */
+    protected $appends = [
+        'profile_photo_url',
+    ];
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
+
+    public function tweets(): HasMany
     {
         return $this->hasMany(Tweet::class);
     }
 
-    // Define the relationship for the tweets liked by the user
-    public function likes()
+    public function retweets(): HasMany
+    {
+        return $this->hasMany(Tweet::class)
+            ->where('type', TweetType::RETWEET)
+            ->orWhere('type', TweetType::QUOTE);
+    }
+
+    public function likes(): HasMany
     {
         return $this->hasMany(Like::class);
     }
 
-    // Define the relationship for the users followed by the current user
-    public function following()
+    public function hasLiked(Tweet $tweet): bool
     {
-        return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id');
+        return $this->likes->contains('tweet_id', $tweet->id);
     }
 
-    // Define the relationship for the retweets made by the user
-    public function retweets()
+    public function hasRetweeted(Tweet $tweet): bool
     {
-        return $this->hasMany(Retweet::class);
+        return $this->retweets->contains('original_tweet_id', $tweet->id);
     }
 }
