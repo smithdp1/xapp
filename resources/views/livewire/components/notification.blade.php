@@ -8,7 +8,7 @@
             <img src="{{ $this->getUser()->profile_photo_url }}" alt="User Image" class="w-10 h-10 rounded-full">
         </a>
 
-        @if ($this->notification->data['action'] !== null)
+        @if ($this->notification->data['action'])
             <div class="mt-2 text-gray-300 text-sm">
                 <p>
                     <a href="{{ route('profile.show', $this->getUser()) }}" wire:navigate class=" hover:underline font-bold">
