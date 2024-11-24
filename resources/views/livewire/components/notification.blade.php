@@ -3,13 +3,13 @@
         {!! $this->getIcon() !!}
     </div>
     @dump($this->notification->data)
-    {{-- <div class="flex-1">
+    <div class="flex-1">
         <a href="{{ route('profile.show', $this->getUser()) }}" wire:navigate class="flex items-center space-x-3">
             <img src="{{ $this->getUser()->profile_photo_url }}" alt="User Image" class="w-10 h-10 rounded-full">
         </a>
 
-        @if ($this->notification->data['action'])
-            <div class="mt-2 text-gray-300 text-sm">
+        @if ($this->notification->type == \App\Notifications\FollowNotification::class)
+            {{-- <div class="mt-2 text-gray-300 text-sm">
                 <p>
                     <a href="{{ route('profile.show', $this->getUser()) }}" wire:navigate class=" hover:underline font-bold">
                         {{ $this->getUser()->name }}
@@ -32,10 +32,10 @@
                     </div>
                 @endif
             </a>
-        @else
+        @else --}}
             <div class="mt-2 text-gray-300 text-sm">
                 <p><a href="{{ route('profile.show', $this->getUser()) }}" wire:navigate class=" hover:underline font-bold">{{ $this->getUser()->name }}</a> followed you.</p>
             </div>
         @endif
-    </div> --}}
+    </div>
 </div>
