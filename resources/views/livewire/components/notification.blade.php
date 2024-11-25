@@ -16,9 +16,9 @@
                     </a> {{ $this->notification->data['action'] }} your tweet.
                 </p>
             </div>
-            {{-- 
-            <a href="/" wire:navigate class="mt-2 text-gray-300 text-sm">
-                {!! $this->getTweet()->content_with_links !!}
+            
+            <a href="{{route('tweet', $this->getTweet())}}" wire:navigate class="mt-2 text-gray-300 text-sm">
+                {!! $this->getTweet()->content !!}
 
                 @if ($this->getTweet()->getMedia()->count() > 0)
                     <div class="flex flex-wrap -mx-2 my-3 pr-3">
@@ -32,7 +32,7 @@
                         @endforeach
                     </div>
                 @endif
-            </a>  --}}
+            </a>  
         @else
             <div class="mt-2 text-gray-300 text-sm">
                 <p><a href="{{ route('profile.show', $this->getUser()) }}" wire:navigate class=" hover:underline font-bold">{{ $this->getUser()->name }}</a> followed you.</p>
