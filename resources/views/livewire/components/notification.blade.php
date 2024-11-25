@@ -17,10 +17,10 @@
                 </p>
             </div>
             
-            <a href="/" wire:navigate class="mt-2 text-gray-300 text-sm">
+           {{-- <a href="/" wire:navigate class="mt-2 text-gray-300 text-sm">
                 {!! $this->getTweet()->content_with_links !!}
 
-                {{-- @if ($this->getTweet()->getMedia()->count() > 0)
+                 @if ($this->getTweet()->getMedia()->count() > 0)
                     <div class="flex flex-wrap -mx-2 my-3 pr-3">
                         @foreach($this->getTweet()->getMedia() as $media)
                             <div class="w-1/2 px-2 mb-4">
@@ -31,8 +31,8 @@
                             </div>
                         @endforeach
                     </div>
-                @endif --}}
-            </a>  
+                @endif 
+            </a>  --}}
         @else
             <div class="mt-2 text-gray-300 text-sm">
                 <p><a href="{{ route('profile.show', $this->getUser()) }}" wire:navigate class=" hover:underline font-bold">{{ $this->getUser()->name }}</a> followed you.</p>
