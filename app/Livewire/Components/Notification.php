@@ -28,10 +28,10 @@ class Notification extends Component
         if ($this->notification->type == RetweetNotification::class) {
             return Tweet::find($this->notification->data['original_tweet'])->originalTweet;
         }
-        if ($this->notification->type == LikeNotification::class) {
-            return Tweet::find($this->notification->data['retweet_id']);
+    //     if ($this->notification->type == LikeNotification::class) {
+    //         return Tweet::find($this->notification->data['retweet_id']);
         
-    }
+    // }
 }
 
 
