@@ -17,8 +17,8 @@
                 </p>
             </div>
             
-            <a href="{{route('tweet', $this->getTweet())}}" wire:navigate class="mt-2 text-gray-300 text-sm">
-                {!! $this->getTweet()->content !!}
+            <a href="/" wire:navigate class="mt-2 text-gray-300 text-sm">
+                {!! $this->getTweet()->content_with_links !!}
 
                 @if ($this->getTweet()->getMedia()->count() > 0)
                     <div class="flex flex-wrap -mx-2 my-3 pr-3">

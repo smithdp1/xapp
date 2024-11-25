@@ -14,7 +14,7 @@ use Livewire\Component;
  * [2024-11-22 19:54:36] production.ERROR: App\Livewire\Components\Notification::getTweet(): Return value must be of type App\Models\Tweet, null returned (View: /home/forge/rackpop.com/resources/views/livewire/components/notification.blade.php) (View: /home/forge/rackpop.com/resources/views/livewire/components/notification.blade.php) {"userId":1,"exception":"[object] (Illuminate\\View\\ViewException(code: 0): App\\Livewire\\Components\\Notification::getTweet(): Return value must be of type App\\Models\\Tweet, null returned (View: /home/forge/rackpop.com/resources/views/livewire/components/notification.blade.php) (View: /home/forge/rackpop.com/resources/views/livewire/components/notification.blade.php) at /home/forge/rackpop.com/app/Livewire/Components/Notification.php:29)
  */
 
-class Notification extends Component
+\class Notification extends Component
 {
     public DatabaseNotification $notification;
 
@@ -28,9 +28,12 @@ class Notification extends Component
         if ($this->notification->type == RetweetNotification::class) {
             return Tweet::find($this->notification->data['original_tweet'])->originalTweet;
         }
-
+        if ($this->notification->type == FollowNotification::class) {
+            return Tweet::find($this->notification->data['tweet_id']);
+        }
         return Tweet::find($this->notification->data['retweet_id'])->originalTweet;
     }
+
 
     public function getIcon(): string
     {
