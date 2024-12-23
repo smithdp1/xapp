@@ -27,7 +27,7 @@
                         More</a>
                 </li>
                 <li class="mx-2 inline-block">
-                    © 2024 Twitter, Inc.
+                    © 2024 FedFighters.com.
                 </li>
             </ul>
         </footer>
