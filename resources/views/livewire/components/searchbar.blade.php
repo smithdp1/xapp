@@ -19,6 +19,6 @@
     </div>
     <input
         class="flex h-9 w-full items-center rounded-full border border-gray-200 bg-gray-200 pl-12 text-sm font-normal text-gray-100 shadow focus:border focus:border-blue-200 focus:bg-gray-100 focus:outline-none dark:border-dim-400 dark:bg-dim-400 dark:focus:bg-dim-900"
-        placeholder="Search Twitter"
+        placeholder="Search FedFighters"
     />
 </div>
