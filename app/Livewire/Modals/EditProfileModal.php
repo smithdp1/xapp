@@ -8,11 +8,14 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-
+use Carbon\Carbon;
 class EditProfileModal extends Component
 {
     use WithFileUploads;
     use IsModal;
+    public Carbon $startDate;
+
+    public Carbon $endDate;
 
     public EditProfileModalForm $form;
 
