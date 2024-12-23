@@ -9,3 +9,6 @@ use Illuminate\Support\Number;
 Route::get('/', Home::class)->name('home');
 Route::get('/notifications', Notifications::class)->name('notifications');
 Route::get('/profile/{user:username}', Profile::class)->name('profile.show');
+Route::get('/linkstorage', function () {
+  Artisan::call('storage:link');
+});
