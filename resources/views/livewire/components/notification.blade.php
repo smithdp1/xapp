@@ -14,7 +14,7 @@
                         <p>
                             <a href="{{ route('profile.show', $this->getUser()) }}" wire:navigate class=" hover:underline font-bold">
                                 {{ $this->getUser()->name }}
-                            </a> {{ $this->notification->data['action'] }} your tweet.
+                            </a> {{ $this->notification->data['action'] }} your post.
                         </p>
                     </div>
                     <a href="/" wire:navigate class="mt-2 text-gray-300 text-sm">
@@ -25,7 +25,7 @@
                                 @foreach($this->getTweet()->getMedia() as $media)
                                     <div class="w-1/2 px-2 mb-4">
                                         <div class="rounded-2xl overflow-hidden border border-gray-600">
-                                            <img src="{{ $media->getUrl() }}" alt="Tweet Image"
+                                            <img src="{{ $media->getUrl() }}" alt="Post Image"
                                                  class="w-full h-auto object-cover rounded-2xl">
                                         </div>
                                     </div>
