@@ -2,7 +2,7 @@
     <div
         class="fixed flex h-screen w-290 flex-col overflow-y-auto lg:w-350"
     >
-        <livewire:components.search-bar />
+        <livewire:components.searchbar />
         <livewire:components.who-to-follow lazy />
         <footer>
             <ul class="mx-2 my-4 text-xs text-gray-500">
