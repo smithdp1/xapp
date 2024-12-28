@@ -13,7 +13,7 @@
                         </g>
                     </svg>
                 </div>
-                <div class="text-xs font-bold">{{ $tweet->user->name }} re-posted</div>
+                <div class="text-xs font-bold">{{ $tweet->user->name }} re-posted </div>
             </div>
 
             <livewire:components.tweets.tweet-user :tweet="$tweet"/>
