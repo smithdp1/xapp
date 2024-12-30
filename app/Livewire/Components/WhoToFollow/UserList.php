@@ -22,6 +22,7 @@ class UserList extends Component
             $this->users = User::inRandomOrder()->
             limit($this->limit)
             ->get();
+        }
     }
 
     public function toggleFollow(User $user): void
