@@ -72,7 +72,7 @@ class EditProfileModal extends Component
             $this->redirect(route('profile.show', $user->username));
         }
 
-        $this->dispatch('updateProfilePage');
+        $this->dispatch('updateProfilePage'); 
         $this->hide();
     }
 
