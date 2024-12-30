@@ -57,23 +57,7 @@
             </div>
 
             <!-- Username Field -->
-<!--             <div class="mb-4">
-                <label for="username"
-                       class="block text-sm font-medium text-gray-700 dark:text-gray-300">Username</label>
-                <input
-                    class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 w-full dark:focus:ring-indigo-600 rounded-md shadow-sm"
-                    type="text"
-                    {{ $this->canUpdateUsername() ? '' : 'disabled' }}
-                    wire:model="form.username"
-                    id="username">
-                @if (!$this->canUpdateUsername())
-                    <small>
-                        Your username can only be changed once every
-                        {{ config('x.can_update_username_every') }} days.
-                    </small>
-                @endif
-                <x-input-error for="form.username"/>
-            </div> -->
+
 
             <!-- Website Field -->
             <div class="mb-4">
