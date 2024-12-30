@@ -17,7 +17,7 @@
             <h2 class="mb-0 text-xl font-bold text-gray-900 dark:text-white">
                 {{ $user->username }}
                 <p class="mb-0 w-48 text-xs text-gray-900 dark:text-gray-400">
-                    {{ $user->tweets->count() }} Tweets
+                    {{ $user->tweets->count() }} Posts
                 </p>
             </h2>
         </div>
