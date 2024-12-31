@@ -47,7 +47,7 @@
                  alt="Your profile picture">
         </div>
         <div class="w-full p-2">
-            <label class="sr-only" for="main-compose">Tweet Body</label>
+            <label class="sr-only" for="main-compose">Post Body</label>
             <textarea
                 x-auto-resize
                 id="main-compose"
@@ -123,7 +123,7 @@
             href="#"
             class="bg-blue-400 hover:bg-blue-500 text-white rounded-full py-1 px-4 ml-auto mr-1"
         >
-            <span class="font-bold text-sm">Tweet</span>
+            <span class="font-bold text-sm">Post</span>
         </button>
     </div>
     @error('form.images')
