@@ -1,4 +1,4 @@
-<div class="hidden h-screen w-290 md:block lg:w-350">
+F<div class="hidden h-screen w-290 md:block lg:w-350">
     <div
         class="fixed flex h-screen w-290 flex-col overflow-y-auto lg:w-350"
     >
@@ -29,7 +29,7 @@
                         More</a>
                 </li>
                 <li class="mx-2 inline-block">
-                    © 2024 Twitter, Inc.
+                    © 2024 FedFighters.com.
                 </li>
             </ul>
         </footer>
