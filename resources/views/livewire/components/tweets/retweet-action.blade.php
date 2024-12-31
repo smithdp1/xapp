@@ -20,11 +20,11 @@
             <x-tweet-action-dropdown-item>
                 @if (!auth()->user()->hasRetweeted($tweet))
                     <span class="flex w-full" wire:click="retweet">
-                        Retweet
+                        Re-Post
                     </span>
                 @else
                     <span class="flex w-full" wire:click="undoRetweet">
-                        Undo Retweet
+                        Undo Re-Post
                     </span>
                 @endif
             </x-tweet-action-dropdown-item>
