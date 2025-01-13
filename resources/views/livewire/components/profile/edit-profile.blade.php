@@ -25,7 +25,7 @@
     <!-- User card-->
     <div>
         <div class="w-full bg-cover bg-no-repeat bg-center"
-             style="height: 200px; background-image: url('{{ $user->banner_path ?? 'https://via.placeholder.com/600x200' }}');">
+             style="height: 200px; background-image: url('{{ asset($user->banner_path) ?? 'https://via.placeholder.com/600x200' }}');">
             <img class="opacity-0 w-full h-full"
                  src="{{ $user->banner_path ?? 'https://via.placeholder.com/600x200' }}" alt="">
         </div>
