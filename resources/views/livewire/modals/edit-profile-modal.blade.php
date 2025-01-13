@@ -13,7 +13,7 @@
                     </div>
                 @else
                     <div class="h-36 bg-cover bg-center rounded-t-lg"
-                         style="background-image: url('{{ Storage::url($user->banner_path) ?? '' }}');">
+                         style="background-image: url('{{ Storage::url(auth()->user()->banner_path) ?? '' }}');">
                         <div class="absolute inset-0 bg-black bg-opacity-25 flex items-center justify-center">
                             <span class="text-white text-sm">Change Banner</span>
                         </div>
