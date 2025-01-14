@@ -29,7 +29,7 @@
                         More</a>
                 </li>
                 <li class="mx-2 inline-block">
-                    © {{ date('Y') }} {{ config('app.name') }}, Inc.
+                    © {{ date('Y') }} {{ config('app.name') }}.com.
                 </li>
             </ul>
         </footer>
