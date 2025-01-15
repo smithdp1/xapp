@@ -22,7 +22,7 @@
                 </div>
             </a>
             <div>
-                @if (auth()->user()->isFollowing($user))
+                @if (auth()->user()?->isFollowing($user))
                     <button
                         type="button"
                         wire:click="toggleFollow({{ $user->id }})"
