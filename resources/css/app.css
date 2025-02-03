@@ -7,7 +7,7 @@
 }
 
 .tweet-body  {
-    @apply text-base pl-16 font-medium text-black dark:text-white flex-shrink;
+    @apply text-base pl-16 font-medium text-black dark:text-white flex-shrink !important;
 }
 
 .tweet-body a {
