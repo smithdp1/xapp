@@ -65,4 +65,4 @@ class RetweetAction extends Component
     {
         return view('livewire.components.tweets.retweet-action');
     }
-}
+} 
