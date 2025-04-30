@@ -50,4 +50,4 @@ class QuoteTweetModal extends Component
     {
         return view('livewire.modals.quote-tweet-modal');
     }
-}
+} 
