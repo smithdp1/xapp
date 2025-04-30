@@ -56,4 +56,4 @@ class Tweet extends Component
     {
         return view('livewire.pages.tweet');
     }
-}
+} 
