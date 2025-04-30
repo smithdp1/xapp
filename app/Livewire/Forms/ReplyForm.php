@@ -11,4 +11,4 @@ class ReplyForm extends Form
     public string $body = '';
 
     public $images = null;
-}
+} 
