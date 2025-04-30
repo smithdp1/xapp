@@ -7,4 +7,4 @@ use Illuminate\Database\Eloquent\Model;
 class TweetMedia extends Model
 {
     //
-}
+} 
