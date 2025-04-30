@@ -43,4 +43,4 @@ class Compose extends Component
     {
         return view('livewire.components.compose.compose');
     }
-}
+} 
