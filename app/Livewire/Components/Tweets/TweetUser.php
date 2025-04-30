@@ -14,4 +14,4 @@ class TweetUser extends Component
     {
         return view('livewire.components.tweets.tweet-user');
     }
-}
+} 
