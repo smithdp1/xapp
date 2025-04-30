@@ -14,4 +14,4 @@ class TweetQuote extends Component
     {
         return view('livewire.components.tweet-quote');
     }
-}
+} 
