@@ -10,4 +10,4 @@ trait IsComposing
             unset($this->form->images[$index]);
         }
     }
-}
+} 
