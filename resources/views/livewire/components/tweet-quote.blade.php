@@ -22,4 +22,4 @@
             </div>
         @endif
     </a>
-</div> 
+</div>
