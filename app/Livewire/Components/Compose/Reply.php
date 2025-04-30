@@ -51,4 +51,4 @@ class Reply extends Component
     {
         return view('livewire.components.compose.reply');
     }
-}
+} 
