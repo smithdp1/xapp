@@ -26,4 +26,4 @@ class Tweet extends Component
     {
         return view('livewire.components.tweets.tweet');
     }
-}
+} 
