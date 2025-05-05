@@ -50,7 +50,7 @@ class Timeline extends Component
         $this->tweets = $this->tweets->merge($moreTweets);
     }
 
-   // #[On('echo:tweets,TweetWasCreated')]
+   #[On('echo:tweets,TweetWasCreated')]
     public function listenForTweet($tweet): void
     {
         $tweet = Tweet::find($tweet['id']);
@@ -59,7 +59,7 @@ class Timeline extends Component
         }
     }
 
-   // #[On('echo:tweets,TweetWasDeleted')]
+   #[On('echo:tweets,TweetWasDeleted')]
     public function listenForDeletedTweets($tweet): void
     {
         $tweet = Tweet::find($tweet['id']);
@@ -71,7 +71,7 @@ class Timeline extends Component
         }
     }
 
-   // #[On('addTweet')]
+    #[On('addTweet')]
     public function addTweet($tweetId): void
     {
         $tweet = Tweet::find($tweetId);
@@ -81,7 +81,7 @@ class Timeline extends Component
         }
     }
 
-   // #[On('deleteTweet')]
+   #[On('deleteTweet')]
     public function deleteTweet($tweetId): void
     {
         $tweet = Tweet::find($tweetId);
